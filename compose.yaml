@@ -1,0 +1,7 @@
+﻿services:
+  kontursvetstore.api:
+    image: kontursvetstore.api
+    build:
+      context: .
+      dockerfile: KontursvetStore.Api/Dockerfile
+
