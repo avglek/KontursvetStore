@@ -1,3 +1,5 @@
+using KontursvetStore.Core.Constants;
+
 namespace KontursvetStore.Core.Models;
 
 public class Category : BaseModel
@@ -9,7 +11,13 @@ public class Category : BaseModel
         Description = description;
     }
     
+    /// <summary>
+    /// Имя категории
+    /// </summary>
     public string Name { get;}
+    /// <summary>
+    /// Описание категории
+    /// </summary>
     public string Description { get;}
     
     public static (Category Category,string Error) Create(Guid id, string name, string description, bool enabled, DateTime lastUpdated)
@@ -18,7 +26,7 @@ public class Category : BaseModel
 
         if (string.IsNullOrEmpty(name) || name.Length > StoreAppConstants.MAX_NAME_LENGTH)
         {
-            error = $"Name can not be empty or longer then {StoreAppConstants.MAX_NAME_LENGTH} symbols";
+            error = ErrorMessages.NAME_NULL_OR_LONG;
             return (null, error);
         }
         

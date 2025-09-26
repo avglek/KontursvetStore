@@ -1,4 +1,5 @@
 using KontursvetStore.Core;
+using KontursvetStore.Core.Constants;
 using KontursvetStore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
