@@ -27,13 +27,13 @@ public class CategoryService : ICategoryService
         return  await _repository.Create(category); 
     }
 
-    public async Task<Guid> Update(Category category)
+    public async Task<int> Update(Category category)
     {
         return await _repository.Update(category);
     }
     
-    public async Task Delete(Guid id)
+    public async Task<int> Delete(Guid id)
     {
-        await _repository.Delete(id);
+        return await _repository.Delete(id);
     }
 }

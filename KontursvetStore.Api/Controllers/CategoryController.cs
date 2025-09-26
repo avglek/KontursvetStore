@@ -1,5 +1,6 @@
 using KontursvetStore.Api.Contracts;
 using KontursvetStore.Core.Abstractions;
+using KontursvetStore.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KontursvetStore.Api.Controllers;
@@ -29,5 +30,65 @@ public class CategoryController: ControllerBase
         });
 
         return Ok(response);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<CategoryResponse>> GetById(Guid id)
+    {
+        var category = await _service.GetById(id);
+        
+        if (category == null)
+        {
+            return NotFound();
+        }
+        
+        var response = new CategoryResponse()
+        {
+            Id = category.Id,
+            Name = category.Name,
+            Description = category.Description,
+            Enabled = category.Enabled,
+        };
+        
+        return Ok(response);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<Guid>> Create([FromForm] CategoryRequest request)
+    {
+        var (category, error) = Category.Create(
+            Guid.NewGuid(),
+            request.Name,
+            request.Description,
+            request.Enabled
+        );
+
+        if (!string.IsNullOrEmpty(error))
+        {
+            return BadRequest(error);
+        }
+        var uid = await _service.Create(category);
+        return Ok(uid);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
+    {
+        var (category, error) = Category.Create(id, request.Name, request.Description, request.Enabled);
+
+        if (!string.IsNullOrEmpty(error))
+        {
+            return BadRequest(error);
+        }
+        
+        var rows = await _service.Update(category);
+        return Ok(rows);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<int>> Delete(Guid id)
+    {
+        var rows = await _service.Delete(id);
+        return Ok(rows);
     }
 }

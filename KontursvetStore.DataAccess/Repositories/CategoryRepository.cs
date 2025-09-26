@@ -27,9 +27,9 @@ public class CategoryRepository : ICategoryRepository
 
     public async Task<Category> GetById(Guid id)
     {
-        var ce = await _context.Categories.SingleOrDefaultAsync(t => t.Id == id);
+        var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
 
-        return Category.Create(ce.Id, ce.Name, ce.Description, ce.Enabled).Category;
+        return ce == null ? null : Category.Create(ce.Id, ce.Name, ce.Description, ce.Enabled).Category;
     }
 
     public async Task<Guid> Create(Category category)
@@ -50,9 +50,9 @@ public class CategoryRepository : ICategoryRepository
         return categoryEntity.Id;
     }
 
-    public async Task<Guid> Update(Category category)
+    public async Task<int> Update(Category category)
     {
-        await _context.Categories
+        var rows = await _context.Categories
             .Where(p => p.Id == category.Id)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Name, b => category.Name)
@@ -61,15 +61,15 @@ public class CategoryRepository : ICategoryRepository
                 .SetProperty(p => p.Updated, p => DateTime.UtcNow)
             );
         
-        return category.Id;
+        return rows;
     }
 
-    public async Task<Guid> Delete(Guid id)
+    public async Task<int> Delete(Guid id)
     {
-        await _context.Categories
+        var rows = await _context.Categories
             .Where(p => p.Id == id)
             .ExecuteDeleteAsync();
         
-        return id;
+        return rows;
     }
 }
