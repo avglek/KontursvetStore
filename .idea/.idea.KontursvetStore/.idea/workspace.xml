@@ -8,12 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf9a12d6-13d5-480f-98d8-4c24113f71a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/BaseModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/ICategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/ICategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Models/BaseModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/StoreAppConstants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,7 +154,7 @@
       <updated>1758727943402</updated>
       <workItem from="1758727946184" duration="8587000" />
       <workItem from="1758770937891" duration="7270000" />
-      <workItem from="1758857742120" duration="2557000" />
+      <workItem from="1758857742120" duration="4276000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -163,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758777318727</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update category">
+      <option name="closed" value="true" />
+      <created>1758860961931</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758860961931</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +183,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Update category" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update category" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

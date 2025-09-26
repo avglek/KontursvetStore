@@ -19,7 +19,7 @@ public class CategoryRepository : ICategoryRepository
         var categoryEntities = await _context.Categories.AsNoTracking().ToListAsync();
 
         var categories = categoryEntities
-            .Select(p => Category.Create(p.Id, p.Name, p.Description, p.Enabled).Category)
+            .Select(p => Category.Create(p.Id, p.Name, p.Description, p.Enabled, p.Updated).Category)
             .ToList();;
         
         return categories;
@@ -29,7 +29,7 @@ public class CategoryRepository : ICategoryRepository
     {
         var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
 
-        return ce == null ? null : Category.Create(ce.Id, ce.Name, ce.Description, ce.Enabled).Category;
+        return ce == null ? null : Category.Create(ce.Id, ce.Name, ce.Description, ce.Enabled, ce.Updated).Category;
     }
 
     public async Task<Guid> Create(Category category)

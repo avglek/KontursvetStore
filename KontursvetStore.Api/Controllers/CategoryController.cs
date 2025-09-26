@@ -27,6 +27,7 @@ public class CategoryController: ControllerBase
            Name = p.Name,
            Description = p.Description,
            Enabled = p.Enabled,
+           LastUpdate = p.LastUpdated
         });
 
         return Ok(response);
@@ -48,6 +49,7 @@ public class CategoryController: ControllerBase
             Name = category.Name,
             Description = category.Description,
             Enabled = category.Enabled,
+            LastUpdate = category.LastUpdated
         };
         
         return Ok(response);
@@ -60,7 +62,8 @@ public class CategoryController: ControllerBase
             Guid.NewGuid(),
             request.Name,
             request.Description,
-            request.Enabled
+            request.Enabled,
+            DateTime.UtcNow
         );
 
         if (!string.IsNullOrEmpty(error))
@@ -74,7 +77,7 @@ public class CategoryController: ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
     {
-        var (category, error) = Category.Create(id, request.Name, request.Description, request.Enabled);
+        var (category, error) = Category.Create(id, request.Name, request.Description, request.Enabled, DateTime.UtcNow);
 
         if (!string.IsNullOrEmpty(error))
         {
