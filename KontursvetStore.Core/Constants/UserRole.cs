@@ -2,7 +2,7 @@ namespace KontursvetStore.Core.Constants;
 
 public enum UserRole
 {
-    Admin,
+    Client,
     Manager,
-    Client
+    Admin,
 }

@@ -31,36 +31,36 @@ public class Product: BaseModel
     /// <summary>
     /// Наименование продуста
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get;}
     /// <summary>
     /// Код продукта
     /// </summary>
-    public string Code { get; set; }
+    public string Code { get;}
     /// <summary>
     /// Описание продукта
     /// </summary>
-    public string Description { get; set; }
+    public string Description { get;}
     /// <summary>
     /// Короткое описание
     /// </summary>
-    public string ShortDescription { get; set; }
+    public string ShortDescription { get;}
     /// <summary>
     /// Основное фото 
     /// </summary>
-    public string Photo { get; set; }
+    public string Photo { get;}
     /// <summary>
     /// Дополнительные фото
     /// </summary>
-    public string[] OtherPhoto { get; set; }
+    public string[] OtherPhoto { get;}
     /// <summary>
     /// Цена 
     /// </summary>
-    public int Price { get; set; }
+    public int Price { get;}
     /// <summary>
     /// Колличество
     /// </summary>
-    public int Quantity { get; set; }
-
+    public int Quantity { get;}
+    
     public static (Product Product, string Error) Create(
         Guid id, DateTime lastUpdate, bool enabled, string name, string code, string description,
         string shortDescription, string photo, string[] otherPhoto, int price, int quantity
@@ -72,7 +72,7 @@ public class Product: BaseModel
         }
 
         var product = new Product(id, lastUpdate, enabled, name, code, description, shortDescription, photo, otherPhoto,
-            price, quantity);
+            price, quantity );
         
         return (product, null);
     }

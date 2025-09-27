@@ -4,7 +4,7 @@ namespace KontursvetStore.Core.Models;
 
 public class Category : BaseModel
 {
-    private Category(Guid id, string name,string description,bool enabled, DateTime lastUpdated)
+    private Category(Guid id, DateTime lastUpdated, bool enabled, string name,string description)
         :base(id,enabled,lastUpdated)
     {   
         Name = name;
@@ -19,8 +19,9 @@ public class Category : BaseModel
     /// Описание категории
     /// </summary>
     public string Description { get;}
+
     
-    public static (Category Category,string Error) Create(Guid id, string name, string description, bool enabled, DateTime lastUpdated)
+    public static (Category Category,string Error) Create(Guid id, DateTime lastUpdated, bool enabled, string name, string description)
     {
         var error = string.Empty;
 
@@ -30,7 +31,7 @@ public class Category : BaseModel
             return (null, error);
         }
         
-        var category = new Category(id, name, description, enabled, lastUpdated);
+        var category = new Category(id,lastUpdated,enabled, name, description );
         return (category, error);
     }
 }

@@ -47,11 +47,11 @@ public class Order : BaseModel
     /// <summary>
     /// Дата оформления заказа
     /// </summary>
-    public DateTime DateOfOrder { get; set; }
+    public DateTime DateOfOrder { get;}
     /// <summary>
     /// Комментарий
     /// </summary>
-    public string Comment { get; set; }
+    public string Comment { get;}
 
     public static (Order Order, string Error) Create(Guid id, DateTime lastUpdated, bool enabled, string code,
         int amount, string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, DateTime dateOfOrder, string comment)

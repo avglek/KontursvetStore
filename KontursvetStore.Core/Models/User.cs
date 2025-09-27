@@ -16,13 +16,34 @@ public class User: BaseModel
         Address = address;
         Phone = phone;
     }
-    
+
+    /// <summary>
+    /// Почта
+    /// </summary>
     public string Email { get; }
+    /// <summary>
+    /// Имя
+    /// </summary>
     public string Name { get; }
+    /// <summary>
+    /// Фамилия
+    /// </summary>
     public string Surname { get; }
+    /// <summary>
+    /// Роль в БД
+    /// </summary>
     public UserRole Role { get; }
+    /// <summary>
+    /// Пароль
+    /// </summary>
     public string Password { get; }
+    /// <summary>
+    /// Адрес
+    /// </summary>
     public string Address { get; }
+    /// <summary>
+    /// Телефон для связи
+    /// </summary>
     public string Phone { get; }
 
     public static (User User, string Error) Create(Guid id, DateTime lastUpdate, bool enabled, string name, string email, string surName, 

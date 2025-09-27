@@ -60,10 +60,10 @@ public class CategoryController: ControllerBase
     {
         var (category, error) = Category.Create(
             Guid.NewGuid(),
-            request.Name,
-            request.Description,
+            DateTime.UtcNow,
             request.Enabled,
-            DateTime.UtcNow
+            request.Name,
+            request.Description
         );
 
         if (!string.IsNullOrEmpty(error))
@@ -77,7 +77,7 @@ public class CategoryController: ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
     {
-        var (category, error) = Category.Create(id, request.Name, request.Description, request.Enabled, DateTime.UtcNow);
+        var (category, error) = Category.Create(id, DateTime.UtcNow, request.Enabled,request.Name, request.Description);
 
         if (!string.IsNullOrEmpty(error))
         {

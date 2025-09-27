@@ -8,17 +8,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf9a12d6-13d5-480f-98d8-4c24113f71a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/ErrorMessages.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/OrderStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/PaidSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/UserRole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Application/Services/OrderService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Application/Services/ProductService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Application/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IOrderRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IOrderService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IProductService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IUserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.Core/Abstractions/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/OrderConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductOrderConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/UserConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/OrderEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductOrderEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/UserEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/ProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Constants/UserRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/UserRole.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/StoreAppConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Constants/StoreAppConstants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/StoreDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/StoreDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +76,20 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0fdac8f9e82a6eb517ca0a8e31ea8c61f4efba5a7db6881710e4a7d2aec6e/ValueGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Application/Services/OrderService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Application/Services/ProductService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.Application/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Constants/ErrorMessages.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Constants/OrderStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Constants/PaidSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,7 +101,17 @@
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/OrderConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductOrderConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/OrderEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductOrderEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/UserEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/ProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/KontursvetStore.DataAccess/StoreDbContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -168,7 +218,10 @@
       <workItem from="1758857742120" duration="7087000" />
       <workItem from="1758865506715" duration="26000" />
       <workItem from="1758904308330" duration="779000" />
-      <workItem from="1758910336577" duration="2446000" />
+      <workItem from="1758910336577" duration="2474000" />
+      <workItem from="1758945439363" duration="8260000" />
+      <workItem from="1758960145868" duration="3047000" />
+      <workItem from="1758983187026" duration="6442000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -194,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758862837215</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Models">
+      <option name="closed" value="true" />
+      <created>1758912820754</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758912820754</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +268,8 @@
     <MESSAGE value="Init" />
     <MESSAGE value="Update category" />
     <MESSAGE value="Update Category" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Category" />
+    <MESSAGE value="Add Models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

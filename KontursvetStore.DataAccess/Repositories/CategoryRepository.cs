@@ -2,6 +2,7 @@ using KontursvetStore.Core.Abstractions;
 using KontursvetStore.Core.Models;
 using KontursvetStore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace KontursvetStore.DataAccess.Repositories;
 
@@ -19,7 +20,13 @@ public class CategoryRepository : ICategoryRepository
         var categoryEntities = await _context.Categories.AsNoTracking().ToListAsync();
 
         var categories = categoryEntities
-            .Select(p => Category.Create(p.Id, p.Name, p.Description, p.Enabled, p.Updated).Category)
+            .Select(p => Category.Create(
+                p.Id,
+                p.Updated,
+                p.Enabled, 
+                p.Name, 
+                p.Description
+                ).Category)
             .ToList();;
         
         return categories;
@@ -29,7 +36,7 @@ public class CategoryRepository : ICategoryRepository
     {
         var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
 
-        return ce == null ? null : Category.Create(ce.Id, ce.Name, ce.Description, ce.Enabled, ce.Updated).Category;
+        return ce == null ? null : Category.Create(ce.Id, ce.Updated, ce.Enabled,ce.Name, ce.Description).Category;
     }
 
     public async Task<Guid> Create(Category category)
