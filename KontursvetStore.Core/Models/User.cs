@@ -1,3 +1,4 @@
+using CSharpFunctionalExtensions;
 using KontursvetStore.Core.Constants;
 
 namespace KontursvetStore.Core.Models;
@@ -5,7 +6,7 @@ namespace KontursvetStore.Core.Models;
 public class User: BaseModel
 {
     private User(Guid id, DateTime lastUpdate, bool enabled, string name, string email, string surName, 
-        UserRole role, string password, string address, string phone)
+        UserRole role, string password, string address, string phone,List<Order> orders)
         :base(id, enabled, lastUpdate)
     {
         Email = email;
@@ -15,6 +16,7 @@ public class User: BaseModel
         Password = password;
         Address = address;
         Phone = phone;
+        Orders = orders; 
     }
 
     /// <summary>
@@ -45,22 +47,24 @@ public class User: BaseModel
     /// Телефон для связи
     /// </summary>
     public string Phone { get; }
+    
+    public IList<Order> Orders { get; } = new List<Order>();
 
-    public static (User User, string Error) Create(Guid id, DateTime lastUpdate, bool enabled, string name, string email, string surName, 
-        UserRole role, string password, string address, string phone)
+    public Result<User> Create(Guid id, DateTime lastUpdate, bool enabled, string name, string email, string surName, 
+        UserRole role, string password, string address, string phone, List<Order> orders)
     {
         if (string.IsNullOrEmpty(name) || name.Length > StoreAppConstants.MAX_NAME_LENGTH)
         {
-            return (null, ErrorMessages.NAME_NULL_OR_LONG);
+            return Result.Failure<User>(ErrorMessages.NAME_NULL_OR_LONG);
         }
 
         if (string.IsNullOrEmpty(email) || email.Length > StoreAppConstants.MAX_NAME_LENGTH)
         {
-            return (null, ErrorMessages.EMAIL_NULL_OR_LONG);
+            return Result.Failure<User>(ErrorMessages.EMAIL_NULL_OR_LONG);
         }
 
-        var user = new User(id, lastUpdate, enabled, name, email, surName, role, password, address, phone);
+        var user = new User(id, lastUpdate, enabled, name, email, surName, role, password, address, phone,orders);
 
-        return (user, null);
+        return Result.Success(user);
     }
 }

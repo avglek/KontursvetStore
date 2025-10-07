@@ -2,6 +2,7 @@ using KontursvetStore.Api.Contracts;
 using KontursvetStore.Core.Abstractions;
 using KontursvetStore.Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using ILogger = Serilog.ILogger;
 
 namespace KontursvetStore.Api.Controllers;
 
@@ -10,10 +11,12 @@ namespace KontursvetStore.Api.Controllers;
 public class CategoryController: ControllerBase
 {
     private readonly ICategoryService _service;
+    private readonly ILogger _logger;
     
-    public CategoryController(ICategoryService service)
+    public CategoryController(ICategoryService service,ILogger logger)
     {
         _service = service;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -27,12 +30,26 @@ public class CategoryController: ControllerBase
            Name = p.Name,
            Description = p.Description,
            Enabled = p.Enabled,
-           LastUpdate = p.LastUpdated
+           LastUpdate = p.LastUpdated,
+           Products = p.Products.Select( t=> new ProductResponse()
+           {
+               Id = t.Id,
+               Name = t.Name,
+               Code = t.Code,
+               Description = t.Description,
+               ShortDescription = t.ShortDescription,
+               Photo = t.Photo,
+               OtherPhoto = t.OtherPhoto,
+               Price = t.Price,
+               Quantity = t.Quantity,
+               Enabled = t.Enabled,
+               LastUpdate = t.LastUpdated
+           }).ToList()
         });
-
+    
         return Ok(response);
     }
-
+    
     [HttpGet("{id}")]
     public async Task<ActionResult<CategoryResponse>> GetById(Guid id)
     {
@@ -49,49 +66,69 @@ public class CategoryController: ControllerBase
             Name = category.Name,
             Description = category.Description,
             Enabled = category.Enabled,
-            LastUpdate = category.LastUpdated
+            LastUpdate = category.LastUpdated,
+            Products = category.Products.Select( t=> new ProductResponse()
+            {
+                Id = t.Id,
+                Name = t.Name,
+                Code = t.Code,
+                Description = t.Description,
+                ShortDescription = t.ShortDescription,
+                Photo = t.Photo,
+                OtherPhoto = t.OtherPhoto,
+                Price = t.Price,
+                Quantity = t.Quantity,
+                Enabled = t.Enabled,
+                LastUpdate = t.LastUpdated
+            }).ToList()
         };
         
         return Ok(response);
     }
-
+    
     [HttpPost]
     public async Task<ActionResult<Guid>> Create([FromForm] CategoryRequest request)
     {
-        var (category, error) = Category.Create(
-            Guid.NewGuid(),
-            DateTime.UtcNow,
-            request.Enabled,
-            request.Name,
-            request.Description
+        var result = Category.Create(
+            id: Guid.NewGuid(), 
+            lastUpdated: DateTime.UtcNow,
+            enabled: request.Enabled,
+            name: request.Name,
+            description: request.Description
         );
-
-        if (!string.IsNullOrEmpty(error))
+        
+        if (result.IsFailure)
         {
-            return BadRequest(error);
+            return BadRequest(result.Error);
         }
-        var uid = await _service.Create(category);
+        var uid = await _service.Create(result.Value);
         return Ok(uid);
     }
-
-    [HttpPut("{id}")]
-    public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
-    {
-        var (category, error) = Category.Create(id, DateTime.UtcNow, request.Enabled,request.Name, request.Description);
-
-        if (!string.IsNullOrEmpty(error))
-        {
-            return BadRequest(error);
-        }
-        
-        var rows = await _service.Update(category);
-        return Ok(rows);
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<ActionResult<int>> Delete(Guid id)
-    {
-        var rows = await _service.Delete(id);
-        return Ok(rows);
-    }
+    //
+    // [HttpPut("{id}")]
+    // public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
+    // {
+    //     var (category, error) = Category.Create(
+    //         id, 
+    //         DateTime.UtcNow, 
+    //         request.Enabled,
+    //         request.Name, 
+    //         request.Description,
+    //         null);
+    //
+    //     if (!string.IsNullOrEmpty(error))
+    //     {
+    //         return BadRequest(error);
+    //     }
+    //     
+    //     var rows = await _service.Update(category);
+    //     return Ok(rows);
+    // }
+    //
+    // [HttpDelete("{id}")]
+    // public async Task<ActionResult<int>> Delete(Guid id)
+    // {
+    //     var rows = await _service.Delete(id);
+    //     return Ok(rows);
+    // }
 }

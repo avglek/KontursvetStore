@@ -11,5 +11,14 @@ public class OrderConfiguration : IEntityTypeConfiguration<OrderEntity>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Code).IsRequired().HasMaxLength(StoreAppConstants.MAX_NAME_LENGTH);
+
+        builder
+            .HasOne(x => x.User)
+            .WithMany(x => x.Orders)
+            .HasForeignKey(x => x.UserId);
+
+        builder
+            .HasMany(x => x.Products)
+            .WithMany(x => x.Orders);
     }
 }

@@ -11,5 +11,9 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).IsRequired().HasMaxLength(StoreAppConstants.MAX_NAME_LENGTH);
+
+        builder
+            .HasMany(x => x.Orders)
+            .WithOne(x => x.User);
     }
 }

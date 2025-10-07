@@ -7,22 +7,22 @@ public class OrderEntity: BaseEntity
 
     public string Code { get; set; }
 
-    public int Amount { get; set; }
+    public int Amount { get; set; } = 0;
 
-    public string Address { get; set; }
+    public string Address { get; set; } = string.Empty;
 
-    public int PaymentMethod { get; set; }
+    public int PaymentMethod { get; set; } = 0;
 
-    public bool IsPaid { get; set; }
+    public bool IsPaid { get; set; } = false;
 
-    public int Status { get; set; }
+    public int Status { get; set; } = 0;
 
-    public DateTime DateOfOrder { get; set; }
+    public DateTime? DateOfOrder { get; set; } = null;
 
-    public string? Comment { get; set; }
+    public string? Comment { get; set; } = null;
     
     public Guid UserId { get; set; }
     public UserEntity User { get; set; }
     
-    public IList<ProductOrderEntity> ProductOrders { get; set; } = new List<ProductOrderEntity>();
+    public IList<ProductEntity> Products { get; set; } = [];
 }

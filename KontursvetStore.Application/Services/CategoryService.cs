@@ -1,19 +1,24 @@
+using KontursvetStore.Application.Helpers;
 using KontursvetStore.Core.Abstractions;
 using KontursvetStore.Core.Models;
+using Serilog;
 
 namespace KontursvetStore.Application.Services;
 
 public class CategoryService : ICategoryService
 {
     private readonly ICategoryRepository _repository;
+    private readonly ILogger _logger;
     
-    public CategoryService(ICategoryRepository repository)
+    public CategoryService(ICategoryRepository repository,ILogger logger)
     {
         _repository = repository;
+        _logger = logger;
     }
 
     public async Task<IEnumerable<Category>> GetAll()
     {
+        _logger.Information("Получение всех категорий");
         return await _repository.GetAll();
     }
 

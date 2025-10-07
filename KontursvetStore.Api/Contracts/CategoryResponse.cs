@@ -7,4 +7,6 @@ public class CategoryResponse
     public string Description { get; set; }
     public bool Enabled { get; set; }  
     public DateTime LastUpdate { get; set; }
+    
+    public IList<ProductResponse> Products { get; set; }
 }

@@ -2,24 +2,24 @@ namespace KontursvetStore.DataAccess.Entities;
 
 public class ProductEntity: BaseEntity
 {
-    public string Name{get;set;}
+    public string Name{get;set;} = string.Empty;
 
-    public string Code { get; set; }
+    public string? Code { get; set; } = null;
 
-    public string? Description { get; set; }
+    public string? Description { get; set; } = null;
 
-    public string? ShortDescription { get; set; }
+    public string? ShortDescription { get; set; } = null;
 
-    public string Photo { get; set; }
+    public string? Photo { get; set; } = null;
 
-    public string? OtherPhoto { get; set; }
+    public string? OtherPhoto { get; set; }  = null;
 
-    public int Price { get; set; }
+    public int? Price { get; set; } = null;
 
-    public int Quantity { get; set; }
+    public int? Quantity { get; set; } = null;
     
     public Guid CategoryId { get; set; }
     public CategoryEntity Category { get; set; }
     
-    public IList<ProductOrderEntity> ProductOrders { get; set; } = new List<ProductOrderEntity>();
+    public List<OrderEntity> Orders { get; set; } = [];
 }

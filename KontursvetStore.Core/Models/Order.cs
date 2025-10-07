@@ -1,3 +1,4 @@
+using CSharpFunctionalExtensions;
 using KontursvetStore.Core.Constants;
 
 namespace KontursvetStore.Core.Models;
@@ -5,11 +6,30 @@ namespace KontursvetStore.Core.Models;
 public class Order : BaseModel
 {
     private Order(
-        Guid id,  DateTime lastUpdated, bool enabled, string code, int amount, 
-        string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, DateTime dateOfOrder, string comment)
+        Guid id,Guid userId,  DateTime lastUpdated, bool enabled, string code, int amount, 
+        string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
+        DateTime dateOfOrder, string comment, List<Product>  products)
         :base(id, enabled, lastUpdated)
     {
-        
+        UserId = userId;
+        Code = code;
+        Amount = amount;
+        Address = address;
+        PaymentMethod = paymentMethod;
+        IsPaid = isPaid;
+        Status = status;
+        DateOfOrder = dateOfOrder;
+        Comment = comment;
+        Products = products;
+    }
+    
+    private Order(
+        Guid id,Guid userId,  DateTime lastUpdated, bool enabled, string code, int amount, 
+        string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
+        DateTime dateOfOrder, string comment)
+        :base(id, enabled, lastUpdated)
+    {
+        UserId = userId;
         Code = code;
         Amount = amount;
         Address = address;
@@ -52,19 +72,26 @@ public class Order : BaseModel
     /// Комментарий
     /// </summary>
     public string Comment { get;}
+    
+    public Guid UserId { get;}
+    public IList<Product>  Products { get;} = new List<Product>();
 
-    public static (Order Order, string Error) Create(Guid id, DateTime lastUpdated, bool enabled, string code,
-        int amount, string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, DateTime dateOfOrder, string comment)
+    public static Result<Order> Create(Guid id,Guid userId, DateTime lastUpdated, bool enabled, string code,
+        int amount, string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
+        DateTime dateOfOrder, string comment, List<Product> products)
     {
         if (string.IsNullOrEmpty(code))
         {
             var error = "Поле не долно быть пустым";
-            return (null, error);
+            return Result.Failure<Order>(error);
         }
 
-        var order = new Order(id, lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
-                dateOfOrder, comment);
+        var order = products == null 
+            ? new Order(id, userId,lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
+                dateOfOrder, comment) 
+            : new Order(id, userId,lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
+                dateOfOrder, comment, products);
 
-            return (order, null);
+            return Result.Success(order);
     }
 }

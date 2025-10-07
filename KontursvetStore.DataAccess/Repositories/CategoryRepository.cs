@@ -6,37 +6,55 @@ using System.Linq;
 
 namespace KontursvetStore.DataAccess.Repositories;
 
-public class CategoryRepository : ICategoryRepository
+public class CategoryRepository(StoreDbContext context) : ICategoryRepository
 {
-    private readonly StoreDbContext _context;
-    
-    public CategoryRepository(StoreDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<List<Category>> GetAll()
     {
-        var categoryEntities = await _context.Categories.AsNoTracking().ToListAsync();
-
-        var categories = categoryEntities
-            .Select(p => Category.Create(
-                p.Id,
-                p.Updated,
-                p.Enabled, 
-                p.Name, 
-                p.Description
-                ).Category)
-            .ToList();;
+        var categoryEntities = await context.Categories
+            .Include(c => c.Products)
+            .ToListAsync();
+        
+        var categories = categoryEntities.Select(ce => Category.Create(
+            id: ce.Id,
+            lastUpdated: (DateTime)ce.Updated,
+            name: ce.Name,
+            description: ce.Description,
+            enabled: ce.Enabled,
+            products: ce.Products.Select( pe => Product.Create(
+                id: pe.Id,
+                categoryId: pe.CategoryId,
+                lastUpdate: pe.Updated,
+                enabled: pe.Enabled,
+                name: pe.Name,
+                code: pe.Code,
+                description: pe.Description,
+                shortDescription: pe.ShortDescription,
+                photo: pe.Photo,
+                otherPhoto: pe.OtherPhoto.Split(";"),
+                price: pe.Price,
+                quantity: pe.Quantity,
+                orders:  []
+                ).Value).ToList()
+            ).Value).ToList();
         
         return categories;
+        return null;
     }
 
     public async Task<Category> GetById(Guid id)
     {
-        var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
-
-        return ce == null ? null : Category.Create(ce.Id, ce.Updated, ce.Enabled,ce.Name, ce.Description).Category;
+        // var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
+        //
+        // return ce == null ? null 
+        //     : Category.Create(
+        //         ce.Id, 
+        //         ce.Updated, 
+        //         ce.Enabled,
+        //         ce.Name, 
+        //         ce.Description,
+        //         ce.Products.Select( pr => Transforms.ProductFromEntity(pr)).ToList()
+        //     ).Category
+        return null;
     }
 
     public async Task<Guid> Create(Category category)
@@ -47,33 +65,47 @@ public class CategoryRepository : ICategoryRepository
             Name = category.Name,
             Description = category.Description,
             Enabled = category.Enabled,
-            Created = DateTime.UtcNow,
-            Updated = DateTime.UtcNow,
+            Created = category.LastUpdated,
+            Updated = category.LastUpdated,
         };
 
-        await _context.Categories.AddAsync(categoryEntity);
-        await _context.SaveChangesAsync();
+        await context.Categories.AddAsync(categoryEntity);
+        await context.SaveChangesAsync();
         
         return categoryEntity.Id;
     }
 
     public async Task<int> Update(Category category)
     {
-        var rows = await _context.Categories
+        var rows = await context.Categories
             .Where(p => p.Id == category.Id)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Name, b => category.Name)
                 .SetProperty(p => p.Description, p => category.Description)
                 .SetProperty(p => p.Enabled, p => category.Enabled)
                 .SetProperty(p => p.Updated, p => DateTime.UtcNow)
+                .SetProperty(p => p.Products, p => category.Products
+                    .Select( t => new ProductEntity()
+                        {
+                            Id = t.Id,
+                            Updated = t.LastUpdated,
+                            Name = t.Name,
+                            CategoryId = t.CategoryId,
+                            Description = t.Description,
+                            Enabled = t.Enabled,
+                            Price = t.Price,
+                            Quantity = t.Quantity,
+                            Code = t.Code    
+                        }) 
+                )
             );
         
         return rows;
     }
-
+    
     public async Task<int> Delete(Guid id)
     {
-        var rows = await _context.Categories
+        var rows = await context.Categories
             .Where(p => p.Id == id)
             .ExecuteDeleteAsync();
         

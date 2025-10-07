@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontursvetStore.DataAccess"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontursvetStore.Application", "KontursvetStore.Application\KontursvetStore.Application.csproj", "{B8295D1D-A1F1-4E6C-962E-0807D9F3E8A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontursvetStore.Tests", "KontursvetStore.Tests\KontursvetStore.Tests.csproj", "{5086B878-F4E2-4D0B-B25F-E494E2C97F0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +37,9 @@ Global
 		{B8295D1D-A1F1-4E6C-962E-0807D9F3E8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8295D1D-A1F1-4E6C-962E-0807D9F3E8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8295D1D-A1F1-4E6C-962E-0807D9F3E8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5086B878-F4E2-4D0B-B25F-E494E2C97F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5086B878-F4E2-4D0B-B25F-E494E2C97F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5086B878-F4E2-4D0B-B25F-E494E2C97F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5086B878-F4E2-4D0B-B25F-E494E2C97F0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

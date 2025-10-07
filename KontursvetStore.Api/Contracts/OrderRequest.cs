@@ -4,6 +4,7 @@ namespace KontursvetStore.Api.Contracts;
 
 public class OrderRequest
 {
+    public Guid UserId { get; set; }
     public string Code { get; set; }
     public int Amount { get; set; }
     public string Address { get; set; }
