@@ -8,5 +8,5 @@ public class CategoryResponse
     public bool Enabled { get; set; }  
     public DateTime LastUpdate { get; set; }
     
-    public IList<ProductResponse> Products { get; set; }
+    public IList<ProductResponse>? Products { get; set; }
 }

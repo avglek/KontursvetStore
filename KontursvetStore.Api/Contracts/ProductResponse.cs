@@ -13,4 +13,6 @@ public class ProductResponse
     public int? Quantity { get; set; }
     public bool Enabled { get; set; }  
     public DateTime LastUpdate { get; set; }
+    
+    public CategoryResponse? Category { get; set; }
 }

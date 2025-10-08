@@ -43,7 +43,7 @@ public class CategoryController: ControllerBase
                Price = t.Price,
                Quantity = t.Quantity,
                Enabled = t.Enabled,
-               LastUpdate = t.LastUpdated
+               LastUpdate = t.LastUpdated,
            }).ToList()
         });
     
@@ -104,31 +104,31 @@ public class CategoryController: ControllerBase
         var uid = await _service.Create(result.Value);
         return Ok(uid);
     }
-    //
-    // [HttpPut("{id}")]
-    // public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
-    // {
-    //     var (category, error) = Category.Create(
-    //         id, 
-    //         DateTime.UtcNow, 
-    //         request.Enabled,
-    //         request.Name, 
-    //         request.Description,
-    //         null);
-    //
-    //     if (!string.IsNullOrEmpty(error))
-    //     {
-    //         return BadRequest(error);
-    //     }
-    //     
-    //     var rows = await _service.Update(category);
-    //     return Ok(rows);
-    // }
-    //
-    // [HttpDelete("{id}")]
-    // public async Task<ActionResult<int>> Delete(Guid id)
-    // {
-    //     var rows = await _service.Delete(id);
-    //     return Ok(rows);
-    // }
+    
+    [HttpPut("{id}")]
+    public async Task<ActionResult<int>> Update(Guid id, [FromForm] CategoryRequest request)
+    {
+        var result = Category.Create(
+            id, 
+            DateTime.UtcNow, 
+            request.Enabled,
+            request.Name, 
+            request.Description
+            );
+    
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        
+        var rows = await _service.Update(result.Value);
+        return Ok(rows);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<int>> Delete(Guid id)
+    {
+        var rows = await _service.Delete(id);
+        return Ok(rows);
+    }
 }

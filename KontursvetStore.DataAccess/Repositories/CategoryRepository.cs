@@ -33,7 +33,8 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
                 otherPhoto: pe.OtherPhoto.Split(";"),
                 price: pe.Price,
                 quantity: pe.Quantity,
-                orders:  []
+                orders:  [],
+                category: null
                 ).Value).ToList()
             ).Value).ToList();
         
@@ -43,18 +44,35 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
 
     public async Task<Category> GetById(Guid id)
     {
-        // var ce = await _context.Categories.FirstOrDefaultAsync(t => t.Id == id);
-        //
-        // return ce == null ? null 
-        //     : Category.Create(
-        //         ce.Id, 
-        //         ce.Updated, 
-        //         ce.Enabled,
-        //         ce.Name, 
-        //         ce.Description,
-        //         ce.Products.Select( pr => Transforms.ProductFromEntity(pr)).ToList()
-        //     ).Category
-        return null;
+        var ce = await context.Categories
+            .Include( c => c.Products )
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        return ce == null
+            ? null
+            : Category.Create(
+                ce.Id,
+                ce.Updated,
+                ce.Enabled,
+                ce.Name,
+                ce.Description,
+                products: ce.Products.Select(pe => Product.Create(
+                    id: pe.Id,
+                    categoryId: pe.CategoryId,
+                    lastUpdate: pe.Updated,
+                    enabled: pe.Enabled,
+                    name: pe.Name,
+                    code: pe.Code,
+                    description: pe.Description,
+                    shortDescription: pe.ShortDescription,
+                    photo: pe.Photo,
+                    otherPhoto: pe.OtherPhoto.Split(";"),
+                    price: pe.Price,
+                    quantity: pe.Quantity,
+                    orders: [],
+                    category: null
+                ).Value).ToList()
+            ).Value;
     }
 
     public async Task<Guid> Create(Category category)
@@ -84,20 +102,20 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
                 .SetProperty(p => p.Description, p => category.Description)
                 .SetProperty(p => p.Enabled, p => category.Enabled)
                 .SetProperty(p => p.Updated, p => DateTime.UtcNow)
-                .SetProperty(p => p.Products, p => category.Products
-                    .Select( t => new ProductEntity()
-                        {
-                            Id = t.Id,
-                            Updated = t.LastUpdated,
-                            Name = t.Name,
-                            CategoryId = t.CategoryId,
-                            Description = t.Description,
-                            Enabled = t.Enabled,
-                            Price = t.Price,
-                            Quantity = t.Quantity,
-                            Code = t.Code    
-                        }) 
-                )
+                // .SetProperty(p => p.Products, p => category.Products
+                //     .Select( t => new ProductEntity()
+                //         {
+                //             Id = t.Id,
+                //             Updated = t.LastUpdated,
+                //             Name = t.Name,
+                //             CategoryId = t.CategoryId,
+                //             Description = t.Description,
+                //             Enabled = t.Enabled,
+                //             Price = t.Price,
+                //             Quantity = t.Quantity,
+                //             Code = t.Code    
+                //         }) 
+                //)
             );
         
         return rows;

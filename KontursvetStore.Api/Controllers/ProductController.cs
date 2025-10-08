@@ -16,28 +16,36 @@ public class ProductController: ControllerBase
         _service = service;
     }
 
-    //[HttpGet]
-    // public async Task<ActionResult<List<ProductResponse>>> GetAll()
-    // {
-    //     var categories = await _service.GetAll();
-    //     
-    //     var response = categories.Select( p => new ProductResponse()
-    //     {
-    //        Id = p.Id,
-    //        Name = p.Name,
-    //        Code = p.Code,
-    //        Description = p.Description,
-    //        ShortDescription = p.ShortDescription,
-    //        Photo = p.Photo,
-    //        OtherPhoto = p.OtherPhoto,
-    //        Price = p.Price,
-    //        Quantity = p.Quantity,
-    //        Enabled = p.Enabled,
-    //        LastUpdate = p.LastUpdated
-    //     });
-    //
-    //     return Ok(response);
-    // }
+    [HttpGet]
+     public async Task<ActionResult<List<ProductResponse>>> GetAll()
+     {
+         var categories = await _service.GetAll();
+         
+         var response = categories.Select( p => new ProductResponse()
+         {
+            Id = p.Id,
+            Name = p.Name,
+            Code = p.Code,
+            Description = p.Description,
+            ShortDescription = p.ShortDescription,
+            Photo = p.Photo,
+            OtherPhoto = p.OtherPhoto,
+            Price = p.Price,
+            Quantity = p.Quantity,
+            Enabled = p.Enabled,
+            LastUpdate = p.LastUpdated,
+            Category = p.Category == null ? null : new CategoryResponse()
+            {
+                Id = p.Category.Id,
+                Name = p.Category.Name,
+                Description = p.Category.Description,
+                Enabled = p.Category.Enabled,
+                LastUpdate = p.Category.LastUpdated
+            }
+         });
+    
+         return Ok(response);
+     }
 
     //[HttpGet("{id}")]
     // public async Task<ActionResult<ProductResponse>> GetById(Guid id)
@@ -70,6 +78,9 @@ public class ProductController: ControllerBase
     [HttpPost]
      public async Task<ActionResult<Guid>> Create([FromForm] ProductRequest request)
      {
+         var photos = request.OtherPhoto.FirstOrDefault();
+         var arrayPhoto = photos?.Split(",");
+         
          var result = Product.Create(
              id: Guid.NewGuid(), 
              categoryId: request.CategoryId,
@@ -80,10 +91,11 @@ public class ProductController: ControllerBase
              description: request.Description,
              shortDescription: request.ShortDescription,
              photo: request.Photo,
-             otherPhoto: request.OtherPhoto,
+             otherPhoto: arrayPhoto,
              price: request.Price,
              quantity: request.Quantity,
-             orders:  []
+             orders:  [],
+             category: null
          );
     
          if (result.IsFailure)

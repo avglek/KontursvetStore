@@ -9,51 +9,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf9a12d6-13d5-480f-98d8-4c24113f71a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Application/Helpers/JsonExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/Transforms.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Tests/DataAccessTests/CategorySpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Tests/KontursvetStore.Tests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Tests/UnitTest1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Tests/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/ProductResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/KontursvetStore.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/KontursvetStore.Api.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/WeatherForecast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Application/KontursvetStore.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Application/KontursvetStore.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Application/Services/CategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/KontursvetStore.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/KontursvetStore.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/CategoryConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/OrderConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/OrderConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/ProductOrderConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Configurations/UserConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/BaseEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/OrderEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/OrderEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/ProductOrderEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/UserEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/KontursvetStore.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/KontursvetStore.DataAccess.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/ProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/StoreDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/StoreDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.sln" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Tests/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Tests/UnitTest1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +255,8 @@
       <workItem from="1759375856232" duration="6127000" />
       <workItem from="1759554102299" duration="4944000" />
       <workItem from="1759719010277" duration="3616000" />
-      <workItem from="1759809495247" duration="5100000" />
+      <workItem from="1759809495247" duration="5200000" />
+      <workItem from="1759854973562" duration="7812000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -331,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758991822707</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add Category controller GetAll">
+      <option name="closed" value="true" />
+      <created>1759815700149</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759815700149</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +321,8 @@
     <MESSAGE value="Update Category" />
     <MESSAGE value="Add Models" />
     <MESSAGE value="Add Controller,Service and Repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Controller,Service and Repository" />
+    <MESSAGE value="add Category controller GetAll" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Category controller GetAll" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

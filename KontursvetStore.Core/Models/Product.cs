@@ -19,7 +19,8 @@ public class Product: BaseModel
         string[] otherPhoto,
         int? price,
         int? quantity,
-        List<Order>? orders
+        List<Order>? orders,
+        Category? category
         ):base(id, enabled, lastUpdate)
     {
         CategoryId = categoryId;
@@ -32,6 +33,7 @@ public class Product: BaseModel
         Price = price;
         Quantity = quantity;
         Orders = orders;
+        Category = category;
     }
     
     /// <summary>
@@ -69,12 +71,14 @@ public class Product: BaseModel
     public int? Quantity { get;}  = null;
     
     public Guid CategoryId { get;}
+    public Category Category { get;}
     
-    public IList<Order> Orders { get;} = [];
+    public List<Order> Orders { get;} = [];
     
     public static Result<Product> Create(
         Guid id, Guid categoryId, DateTime lastUpdate, bool enabled, string name, string? code, string? description,
-        string? shortDescription, string? photo, string[]? otherPhoto, int? price, int? quantity,List<Order> orders
+        string? shortDescription, string? photo, string[]? otherPhoto, int? price, int? quantity,List<Order> orders,
+        Category category
     )
     {
         if (string.IsNullOrEmpty(name))
@@ -83,7 +87,7 @@ public class Product: BaseModel
         }
         
         var product = new Product(id, categoryId,lastUpdate, enabled, name, code, description, shortDescription, photo, otherPhoto,
-            price, quantity,orders = [] );
+            price, quantity,[],category );
         
         return Result.Success(product);
     }
