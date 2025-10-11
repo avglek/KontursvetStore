@@ -87,10 +87,10 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
             Updated = category.LastUpdated,
         };
 
-        await context.Categories.AddAsync(categoryEntity);
+        var response = await context.Categories.AddAsync(categoryEntity);
         await context.SaveChangesAsync();
         
-        return categoryEntity.Id;
+        return response.Entity.Id;
     }
 
     public async Task<int> Update(Category category)

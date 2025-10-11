@@ -8,7 +8,7 @@ public class Order : BaseModel
     private Order(
         Guid id,Guid userId,  DateTime lastUpdated, bool enabled, string code, int amount, 
         string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
-        DateTime dateOfOrder, string comment, List<Product>  products)
+        DateTime? dateOfOrder, string comment, List<Product>  products, User user)
         :base(id, enabled, lastUpdated)
     {
         UserId = userId;
@@ -21,24 +21,9 @@ public class Order : BaseModel
         DateOfOrder = dateOfOrder;
         Comment = comment;
         Products = products;
+        User = user;
     }
     
-    private Order(
-        Guid id,Guid userId,  DateTime lastUpdated, bool enabled, string code, int amount, 
-        string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
-        DateTime dateOfOrder, string comment)
-        :base(id, enabled, lastUpdated)
-    {
-        UserId = userId;
-        Code = code;
-        Amount = amount;
-        Address = address;
-        PaymentMethod = paymentMethod;
-        IsPaid = isPaid;
-        Status = status;
-        DateOfOrder = dateOfOrder;
-        Comment = comment;
-    }
 
     /// <summary>
     /// Код заказа
@@ -67,18 +52,18 @@ public class Order : BaseModel
     /// <summary>
     /// Дата оформления заказа
     /// </summary>
-    public DateTime DateOfOrder { get;}
+    public DateTime? DateOfOrder { get;}
     /// <summary>
     /// Комментарий
     /// </summary>
     public string Comment { get;}
-    
     public Guid UserId { get;}
-    public IList<Product>  Products { get;} = new List<Product>();
+    public User User { get;}
+    public IList<Product>  Products { get;} = [];
 
     public static Result<Order> Create(Guid id,Guid userId, DateTime lastUpdated, bool enabled, string code,
         int amount, string address, PaidSystem paymentMethod, bool isPaid, OrderStatus status, 
-        DateTime dateOfOrder, string comment, List<Product> products)
+        DateTime? dateOfOrder, string comment, List<Product> products, User user)
     {
         if (string.IsNullOrEmpty(code))
         {
@@ -86,11 +71,8 @@ public class Order : BaseModel
             return Result.Failure<Order>(error);
         }
 
-        var order = products == null 
-            ? new Order(id, userId,lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
-                dateOfOrder, comment) 
-            : new Order(id, userId,lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
-                dateOfOrder, comment, products);
+        var order = new Order(id, userId,lastUpdated, enabled, code, amount, address, paymentMethod, isPaid, status,
+                dateOfOrder, comment, products, user);
 
             return Result.Success(order);
     }

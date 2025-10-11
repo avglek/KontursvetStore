@@ -1,7 +1,19 @@
 ﻿services:
   kontursvetstore.api:
     image: kontursvetstore.api
+    restart: always
     build:
       context: .
       dockerfile: KontursvetStore.Api/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - postgres_backend_network
+    volumes:
+      - ./logs:/app/Logs
+networks:
+  postgres_backend_network:
+    external: true
+  
 

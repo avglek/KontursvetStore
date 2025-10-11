@@ -1,4 +1,5 @@
 using KontursvetStore.Core.Constants;
+using KontursvetStore.Core.Models;
 
 namespace KontursvetStore.Api.Contracts;
 
@@ -14,4 +15,5 @@ public class UserResponse
     public string? Phone { get;  set; }
     public bool Enabled { get; set; }  
     public DateTime LastUpdate { get; set; }
+    public IList<OrderResponse> Orders { get; set; }
 }

@@ -50,8 +50,9 @@ public class User: BaseModel
     
     public IList<Order> Orders { get; } = new List<Order>();
 
-    public Result<User> Create(Guid id, DateTime lastUpdate, bool enabled, string name, string email, string surName, 
-        UserRole role, string password, string address, string phone, List<Order> orders)
+    public static Result<User> Create(Guid id, DateTime lastUpdate, bool enabled, string name, 
+        string email, UserRole role, string password, string surName = null, 
+        string address = null, string phone = null, List<Order> orders = null)
     {
         if (string.IsNullOrEmpty(name) || name.Length > StoreAppConstants.MAX_NAME_LENGTH)
         {

@@ -75,12 +75,12 @@ public class Program
 
             // Configure the HTTP request pipeline.
 
-            if (app.Environment.IsDevelopment())
-            {
+            // if (app.Environment.IsDevelopment())
+            // {
                 app.MapOpenApi();
                 app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
 
-            }
+//            }
 
 // Enable CORS middleware
             app.UseCors("AllowSpecificOrigin"); // Use the policy name defined above

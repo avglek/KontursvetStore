@@ -47,33 +47,41 @@ public class ProductController: ControllerBase
          return Ok(response);
      }
 
-    //[HttpGet("{id}")]
-    // public async Task<ActionResult<ProductResponse>> GetById(Guid id)
-    // {
-    //     var product = await _service.GetById(id);
-    //     
-    //     if (product == null)
-    //     {
-    //         return NotFound();
-    //     }
-    //     
-    //     var response = new ProductResponse()
-    //     {
-    //         Id = product.Id,
-    //         Name = product.Name,
-    //         Code = product.Code,
-    //         Description = product.Description,
-    //         ShortDescription = product.ShortDescription,
-    //         Photo = product.Photo,
-    //         OtherPhoto = product.OtherPhoto,
-    //         Price = product.Price,
-    //         Quantity = product.Quantity,
-    //         Enabled = product.Enabled,
-    //         LastUpdate = product.LastUpdated
-    //     };
-    //     
-    //     return Ok(response);
-    // }
+    [HttpGet("{id}")]
+     public async Task<ActionResult<ProductResponse>> GetById(Guid id)
+     {
+         var product = await _service.GetById(id);
+         
+         if (product == null)
+         {
+             return NotFound();
+         }
+         
+         var response = new ProductResponse()
+         {
+             Id = product.Id,
+             Name = product.Name,
+             Code = product.Code,
+             Description = product.Description,
+             ShortDescription = product.ShortDescription,
+             Photo = product.Photo,
+             OtherPhoto = product.OtherPhoto,
+             Price = product.Price,
+             Quantity = product.Quantity,
+             Enabled = product.Enabled,
+             LastUpdate = product.LastUpdated,
+             Category = product.Category == null ? null : new CategoryResponse()
+             {
+                 Id = product.Category.Id,
+                 Name = product.Category.Name,
+                 Description = product.Category.Description,
+                 Enabled = product.Category.Enabled,
+                 LastUpdate = product.Category.LastUpdated
+             }
+         };
+         
+         return Ok(response);
+     }
 
     [HttpPost]
      public async Task<ActionResult<Guid>> Create([FromForm] ProductRequest request)
@@ -106,36 +114,42 @@ public class ProductController: ControllerBase
          return Ok(uid);
      }
 
-    // [HttpPut("{id}")]
-    // public async Task<ActionResult<int>> Update(Guid id, [FromForm] ProductRequest request)
-    // {
-    //     var (product, error) = Product.Create(
-    //         id,
-    //         DateTime.UtcNow,
-    //         request.Enabled,
-    //         request.Name,
-    //         request.Code,
-    //         request.Description,
-    //         request.ShortDescription,
-    //         request.Photo,
-    //         request.OtherPhoto,
-    //         request.Price,
-    //         request.Quantity
-    //         );
-    //
-    //     if (!string.IsNullOrEmpty(error))
-    //     {
-    //         return BadRequest(error);
-    //     }
-    //     
-    //     var rows = await _service.Update(product);
-    //     return Ok(rows);
-    // }
+    [HttpPut("{id}")]
+    public async Task<ActionResult<int>> Update(Guid id, [FromForm] ProductRequest request)
+    {
+        var photos = request.OtherPhoto.FirstOrDefault();
+        var arrayPhoto = photos?.Split(",");
+        
+        var result = Product.Create(
+            id: id, 
+            categoryId: request.CategoryId,
+            lastUpdate: DateTime.Now, 
+            enabled: request.Enabled,
+            name: request.Name,
+            code: request.Code,
+            description: request.Description,
+            shortDescription: request.ShortDescription,
+            photo: request.Photo,
+            otherPhoto: arrayPhoto,
+            price: request.Price,
+            quantity: request.Quantity,
+            orders:  [],
+            category: null
+            );
+    
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        
+        var rows = await _service.Update(result.Value);
+        return Ok(rows);
+    }
 
-    // [HttpDelete("{id}")]
-    // public async Task<ActionResult<int>> Delete(Guid id)
-    // {
-    //     var rows = await _service.Delete(id);
-    //     return Ok(rows);
-    // }
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<int>> Delete(Guid id)
+    {
+        var rows = await _service.Delete(id);
+        return Ok(rows);
+    }
 }

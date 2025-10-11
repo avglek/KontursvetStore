@@ -11,8 +11,9 @@ public class OrderResponse
     public PaidSystem PaymentMethod { get; set; }
     public bool IsPaid { get; set; }
     public OrderStatus Status { get; set; }
-    public DateTime DateOfOrder { get; set; }
+    public DateTime? DateOfOrder { get; set; }
     public string Comment { get; set; }
     public bool Enabled { get; set; }  
     public DateTime LastUpdate { get; set; }
+    public IList<ProductResponse> Products { get; set; }
 }
