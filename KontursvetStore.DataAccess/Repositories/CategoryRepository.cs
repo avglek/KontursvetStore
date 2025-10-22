@@ -19,6 +19,7 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
             lastUpdated: (DateTime)ce.Updated,
             name: ce.Name,
             description: ce.Description,
+            imageUrl: ce.ImageUrl,
             enabled: ce.Enabled,
             products: ce.Products.Select( pe => Product.Create(
                 id: pe.Id,
@@ -56,6 +57,7 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
                 ce.Enabled,
                 ce.Name,
                 ce.Description,
+                ce.ImageUrl,
                 products: ce.Products.Select(pe => Product.Create(
                     id: pe.Id,
                     categoryId: pe.CategoryId,
@@ -82,6 +84,7 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
             Id = category.Id,
             Name = category.Name,
             Description = category.Description,
+            ImageUrl = category.ImageUrl,
             Enabled = category.Enabled,
             Created = category.LastUpdated,
             Updated = category.LastUpdated,
@@ -100,6 +103,7 @@ public class CategoryRepository(StoreDbContext context) : ICategoryRepository
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Name, b => category.Name)
                 .SetProperty(p => p.Description, p => category.Description)
+                .SetProperty(p => p.ImageUrl, b => category.ImageUrl)
                 .SetProperty(p => p.Enabled, p => category.Enabled)
                 .SetProperty(p => p.Updated, p => DateTime.UtcNow)
                 // .SetProperty(p => p.Products, p => category.Products

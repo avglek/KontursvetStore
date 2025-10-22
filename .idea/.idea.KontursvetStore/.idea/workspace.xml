@@ -9,22 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf9a12d6-13d5-480f-98d8-4c24113f71a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/KontursvetStore.Api/appsettings.Production.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KontursvetStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/OrderResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/UserResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/OrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.sln" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,6 +262,7 @@
       <workItem from="1760117807381" duration="10310000" />
       <workItem from="1760159923044" duration="1970000" />
       <workItem from="1760162774459" duration="2345000" />
+      <workItem from="1761108107972" duration="1110000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />

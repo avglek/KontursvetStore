@@ -5,11 +5,12 @@ namespace KontursvetStore.Core.Models;
 
 public class Category : BaseModel
 {
-    private Category(Guid id, DateTime lastUpdated, bool enabled, string name,string description,List<Product>  products)
+    private Category(Guid id, DateTime lastUpdated, bool enabled, string name,string description,string imageUrl, List<Product>  products)
         :base(id,enabled,lastUpdated)
     {   
         Name = name;
         Description = description;
+        ImageUrl = imageUrl;
         Products = products;
     }
     
@@ -24,11 +25,13 @@ public class Category : BaseModel
     /// </summary>
     public string? Description { get; } = null;
     
+    public string? ImageUrl { get; } = null;
+    
     public IList<Product>  Products { get; set; } = [];
 
     
     public static Result<Category> Create(
-        Guid id, DateTime lastUpdated, bool enabled, string name, string? description = null, List<Product> products = null)
+        Guid id, DateTime lastUpdated, bool enabled, string name, string? description = null, string? imageUrl = null,  List<Product> products = null)
     {
         var error = string.Empty;
 
@@ -38,7 +41,7 @@ public class Category : BaseModel
             return Result.Failure<Category>(error);
         }
         
-        var category = new Category(id,lastUpdated,enabled, name, description, products );
+        var category = new Category(id,lastUpdated,enabled, name, description, imageUrl,products );
         
         return Result.Success(category);
     }
