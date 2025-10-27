@@ -13,9 +13,9 @@
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Contracts/CategoryResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Core/Models/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Entities/CategoryEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/OrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KontursvetStore.DataAccess/Repositories/UserRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +262,11 @@
       <workItem from="1760117807381" duration="10310000" />
       <workItem from="1760159923044" duration="1970000" />
       <workItem from="1760162774459" duration="2345000" />
-      <workItem from="1761108107972" duration="1110000" />
+      <workItem from="1761108107972" duration="1737000" />
+      <workItem from="1761274985268" duration="566000" />
+      <workItem from="1761275669012" duration="227000" />
+      <workItem from="1761363618214" duration="21000" />
+      <workItem from="1761560875434" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -320,7 +324,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759902261970</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add imageUrl in category">
+      <option name="closed" value="true" />
+      <created>1761109255433</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761109255433</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +349,8 @@
     <MESSAGE value="Add Controller,Service and Repository" />
     <MESSAGE value="add Category controller GetAll" />
     <MESSAGE value="Add Category delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Category delete" />
+    <MESSAGE value="add imageUrl in category" />
+    <option name="LAST_COMMIT_MESSAGE" value="add imageUrl in category" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

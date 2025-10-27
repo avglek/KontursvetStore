@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KontursvetStore.DataAccess.Repositories;
 
-public class OrderRepository //: IOrderRepository
+public class OrderRepository : IOrderRepository
 {
     private readonly StoreDbContext _context;
     

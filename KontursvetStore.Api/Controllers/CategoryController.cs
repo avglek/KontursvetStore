@@ -29,7 +29,7 @@ public class CategoryController: ControllerBase
            Id = p.Id,
            Name = p.Name,
            Description = p.Description,
-           ImageUlr = p.ImageUrl,
+           ImageUrl = p.ImageUrl,
            Enabled = p.Enabled,
            LastUpdate = p.LastUpdated,
            Products = p.Products.Select( t=> new ProductResponse()
@@ -66,7 +66,7 @@ public class CategoryController: ControllerBase
             Id = category.Id,
             Name = category.Name,
             Description = category.Description,
-            ImageUlr = category.ImageUrl,
+            ImageUrl = category.ImageUrl,
             Enabled = category.Enabled,
             LastUpdate = category.LastUpdated,
             Products = category.Products.Select( t=> new ProductResponse()
@@ -97,7 +97,7 @@ public class CategoryController: ControllerBase
             enabled: request.Enabled,
             name: request.Name,
             description: request.Description,
-            imageUrl: request.ImageUlr
+            imageUrl: request.ImageUrl
         );
         
         if (result.IsFailure)
@@ -117,7 +117,7 @@ public class CategoryController: ControllerBase
             request.Enabled,
             request.Name, 
             request.Description,
-            request.ImageUlr
+            request.ImageUrl
             );
     
         if (result.IsFailure)
